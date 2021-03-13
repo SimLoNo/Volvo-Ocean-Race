@@ -101,7 +101,7 @@ class Game{
 				0,
 				0,
 				boats[i].width,							// giver ikke mening? burde eventuelt bruge billede fra array
-				boat[i].height  + yOffsetBoat*50,
+				boats[i].height  + yOffsetBoat*50,
 				teams_2018[i].position_x,
 				75*i + 20 + yOffset,
 				50,
