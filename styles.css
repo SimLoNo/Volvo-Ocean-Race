@@ -1,0 +1,108 @@
+html, body 
+{
+	width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(rgb(255, 255, 255), rgb(50, 190, 235));
+    display: flex;
+    flex-direction: column;  
+}
+header
+{
+    height: 10%;
+    width: 100%;
+    background: linear-gradient(rgb(10, 150, 195), rgb(210, 235, 240));
+    display: flex;
+}
+#videoen
+{
+}
+.header h1
+{
+    color: rgb(0, 255, 230);
+    font-size: 30px;
+    font-weight: bold;
+    font-style: italic;
+}
+#navbar
+{
+    background-color: white;
+    text-align: center;
+}
+ul
+{
+    border: solid black 1px;
+}
+li a /*items/links in the navigationbar */
+{
+    display: block;
+    color: rgb(10, 150, 195);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover /*when you hover the mouse over the items in the navigation bar */
+{
+background-color: rgb(210, 235, 240);
+}
+li a.active /*when link is open */
+{
+    font-weight: bold;
+    text-decoration: underline blue;
+}
+#username, #password
+{
+    width: 10%;
+}
+#logout, #login /*log out- and log in-button  */
+{
+    align-self:  center;
+	/*float: right;*/
+}
+#Admin h2 
+{
+    font-family: Rockwell/*Gabriola*/;
+    font-weight:bold;
+    text-align: center;
+    font-style: italic;
+    color: rgb(45, 165, 245);
+    padding: 20px;
+}
+.form-group
+{
+    float: left;
+    padding-left: 6%;
+    padding-right:6%;
+    text-align: center;
+}
+footer 
+{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 7%;
+    background: linear-gradient(rgb(210, 235, 240), rgb(10, 150, 195));
+    color: black;
+    display: flex;
+}
+/*table*/
+table
+{
+    width: 100%;
+}
+#tablecontent
+{
+    width:100%;
+    height:250px;
+    line-height:3em;
+    overflow:auto; /*makes t a scrollbox, when there is more content in the table than there's room for*/
+    border: solid black 2px;
+}
+th 
+{
+    background-color: #588c7e;
+    color: white;
+}
+tr:nth-child(even) {background-color: #f2f2f2}

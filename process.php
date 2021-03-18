@@ -1,4 +1,5 @@
 <?php
+  session_start();
 
   $mysqli = new mysqli('localhost','root','','ocean_race') or die(mysqli_error($mysqli));
   /*Connect mysql database.('hostname', 'username', 'password', 'database-name').
@@ -19,9 +20,17 @@
   $rank = ''; //there isn't anything in the input box
   $username = '';
   $password = '';
-  $update = false; // Udate button isn't shown
-  
-  
+  $update = false; //udate button isn't shown
+  $admin = false;
+
+  if (isset($_POST['login'])) //log in button (doesn't work)
+  {
+    //$admin = true
+    //check if username and password is in database
+    echo "login isset"; //check if log in button works
+    
+  }
+  else{echo "login not set";}//check if log in button works
 
   //if the button named save has been pressed:
   if (isset($_POST['save']))
@@ -43,7 +52,8 @@
     {
       $mysqli->query("INSERT INTO ships (ShipName, ShipScore, ShipRank) VALUES('$name', '$points', '$rank')") or die($mysqli->error);
     
-      
+      $_SESSION['message'] = "Record has been saved!";
+      $_SESSION['msg_type'] = "success";
     }
     header("location: index.php"); //return to page when processed
   }
@@ -71,7 +81,8 @@
     $rank = $_POST['rank'];
     $mysqli->query("UPDATE ships SET ShipName='$name', ShipScore='$points', ShipRank='$rank' WHERE ShipID=$id") or die($mysqli->error);
 
-    
+    $_SESSION['message'] = "Record has been updated!";
+    $_SESSION['msg_type'] = "warning";
     header("location: index.php"); //return to index page
   }
 
@@ -81,7 +92,8 @@
     $id = $_GET['delete'];
     $mysqli->query("DELETE FROM ships WHERE ShipID=$id") or die($mysqli->error);
 
-    
+    $_SESSION['message'] = "Record has been deleted!";
+    $_SESSION['msg_type'] = "danger";
     header("location: index.php"); //return to page when processed
   }
 

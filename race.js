@@ -44,20 +44,20 @@ class Game{
 		this.context = this.canvas.getContext("2d");
 		this.context.fillStyle = "#333377";
 		this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
-		this.running = false;
+		this.running = true;
 	}
 	update(deltaTime){
 
-		this.running = false;
-		
-		for (let i = 0; i < teams_2018.length; i++){		
+		for (let i = 0; i < 5; i++){		
 			var addBoost = Math.random() * teams_2018[i].boost;
 			teams_2018[i].boost -= addBoost;
 			teams_2018[i].speed += addBoost;
+
+			this.running = false;
 				
 			// sålænge et skib stadig flyttes kører løbet!
 			if (teams_2018[i].position_x <= this.canvas.width - 60){
-				teams_2018[i].position_x += teams_2018[i].speed/100*deltaTime;
+				teams_2018[i].position_x += teams_2018[i].speed/100;
 				this.running = true;
 			}
 		}		
@@ -176,7 +176,7 @@ gameLoop();
 
 function restart(){
 	// bruges også til start
-	for (i = 0; i < teams_2018.length;i++){
+	for (i = 0; i < 5;i++){
 		teams_2018[i].speed = 20;
 		teams_2018[i].position_x = 20;
 		teams_2018[i].boost = teams_2018[i].score;
